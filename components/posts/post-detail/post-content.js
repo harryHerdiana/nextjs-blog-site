@@ -3,7 +3,7 @@ import classes from "./post-content.module.css";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function PostContent(props) {
   const { post } = props;
@@ -43,7 +43,7 @@ function PostContent(props) {
       const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
       return (
         <SyntaxHighlighter
-          style={atomDark}
+          style={dracula}
           language={language}
           children={children}
         />

@@ -17,7 +17,6 @@ export default HomePage;
 export function getStaticProps(){
   const featuredPosts = getFeaturedPosts()
   const allPosts = getAllPosts()
-  console.log(allPosts);
   return {
     props:{
       posts:featuredPosts,
