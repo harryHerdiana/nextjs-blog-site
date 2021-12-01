@@ -1,5 +1,4 @@
 import { MongoClient } from "mongodb";
-import {uiActions} from '../../store/ui-slice'
 
 async function handler(req, res) {
   if (req.method === "POST") {
@@ -32,15 +31,15 @@ async function handler(req, res) {
     } catch (error) {
       res.status(500).json({ message: "Could not connect to database" });
     }
-    const db = client.db()
+    const db = client.db();
     try {
-      const result = await db.collection('messages').insertOne(newMessage)
-      newMessage.id = result.insertedId
+      const result = await db.collection("messages").insertOne(newMessage);
+      newMessage.id = result.insertedId;
     } catch (error) {
-      client.close()
-      res.status(500).json({message:"storing data failed!"})
+      client.close();
+      res.status(500).json({ message: "storing data failed!" });
     }
-    client.close()
+    client.close();
   }
 }
 
