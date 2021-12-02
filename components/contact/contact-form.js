@@ -33,10 +33,10 @@ function ContactForm() {
       return () => clearTimeout(timer);
     }
   }, [requestStatus]);
-
-  async function sendMessageHandler(event) {
+  const sendMessageHandler = async function(event) {
     event.preventDefault()
-    setRequestStatus("pending");
+    
+    setRequestStatus("pending")
     try {
       await sendContactData({
         email: enteredEmail,

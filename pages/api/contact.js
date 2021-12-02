@@ -30,6 +30,7 @@ async function handler(req, res) {
       );
     } catch (error) {
       res.status(500).json({ message: "Could not connect to database" });
+      return
     }
     const db = client.db();
     try {
@@ -38,8 +39,10 @@ async function handler(req, res) {
     } catch (error) {
       client.close();
       res.status(500).json({ message: "storing data failed!" });
+      return
     }
     client.close();
+    res.status(201).json({message:"Successfully stored message!",message:newMessage})
   }
 }
 
